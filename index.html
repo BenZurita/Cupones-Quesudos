@@ -4,44 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cupón Quesudos x Maely Nails x La Casa Tattoo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --rojo:       #E60012;
+            --rojo-vivo:  #FF1A2E;
+            --negro:      #000000;
+            --blanco:     #FFFFFF;
+            --gris-dark:  #111111;
+            --gris-mid:   #1C1C1C;
+            --gris-borde: #2A2A2A;
+            --gris-texto: #777777;
+            --gris-claro: #F0F0F0;
+            --gris-panel: #F5F5F5;
         }
 
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background: #000;
+            font-family: 'Barlow Condensed', sans-serif;
+            background: var(--negro);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px;
-            color: #fff;
+            padding: 36px 20px 60px;
+            color: var(--blanco);
+            /* TEXTURA DE TELA/CANVAS */
+            background-image: 
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23000000'/%3E%3Cpath d='M0 0h4v1H0V0zm0 2h4v1H0V2z' fill='%23222' opacity='0.15'/%3E%3Cpath d='M0 0h1v4H0V0zm2 0h1v4H2V0z' fill='%23222' opacity='0.15'/%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
         }
 
         .container {
             width: 100%;
-            max-width: 400px;
+            max-width: 420px;
         }
 
+        /* ── HEADER ─────────────────────────────── */
         header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
-        /* Logo Quesudos con fondo negro */
         .main-logo {
             width: 100%;
-            max-width: 300px;
-            margin: 0 auto 20px;
-            background: #000;
-            padding: 20px;
-            border-radius: 15px;
-            border: 2px solid #ff0000;
+            max-width: 260px;
+            margin: 0 auto 22px;
         }
 
         .main-logo img {
@@ -50,310 +59,469 @@
             display: block;
         }
 
-        /* Logos colaboradores con fondo NEGRO y más grandes */
+        .red-tape {
+            width: 100%;
+            background: var(--rojo);
+            padding: 5px 0;
+            overflow: hidden;
+            margin-bottom: 22px;
+        }
+
+        .red-tape-inner {
+            display: flex;
+            animation: marquee 12s linear infinite;
+            white-space: nowrap;
+        }
+
+        .red-tape-inner span {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 0.72rem;
+            letter-spacing: 4px;
+            color: var(--blanco);
+            padding: 0 18px;
+            opacity: 0.9;
+        }
+
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+
         .collab-logos {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
-            margin-top: 15px;
-            flex-wrap: wrap;
+            gap: 14px;
         }
 
         .collab-logo {
-            background: #000; /* Cambiado a negro */
-            padding: 15px; /* Aumentado padding */
-            border-radius: 10px;
-            height: 90px; /* Aumentado de 60px a 90px */
+            background: var(--negro);
+            padding: 12px 18px;
+            border-radius: 6px;
+            height: 82px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 2px solid #e60012;
+            border: 1px solid var(--gris-borde);
+            transition: border-color 0.25s;
         }
+
+        .collab-logo:hover { border-color: var(--rojo); }
 
         .collab-logo img {
             height: 100%;
             width: auto;
-            max-width: 160px; /* Aumentado de 120px a 160px */
+            max-width: 150px;
             object-fit: contain;
         }
 
         .collab-x {
-            color: #e60012;
+            color: var(--rojo);
             font-family: 'Bebas Neue', cursive;
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 2rem;
+            line-height: 1;
         }
 
-        /* Formulario */
+        /* ── FORMULARIO ─────────────────────────── */
         .form-container {
-            background: #fff;
-            border: 3px solid #e60012;
-            border-radius: 20px;
-            padding: 30px;
+            background: var(--gris-dark);
+            border: 1px solid var(--gris-borde);
+            border-radius: 10px;
+            padding: 32px 28px 28px;
             margin-bottom: 30px;
         }
 
-        .input-group {
-            margin-bottom: 20px;
+        .form-eyebrow {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--rojo);
+            margin-bottom: 4px;
+            text-align: center;
         }
+
+        .form-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2rem;
+            letter-spacing: 3px;
+            color: var(--blanco);
+            margin-bottom: 26px;
+            text-align: center;
+            line-height: 1;
+        }
+
+        .input-group { margin-bottom: 16px; }
 
         label {
             display: block;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
+            margin-bottom: 7px;
+            font-size: 0.68rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #000;
-            font-weight: 800;
+            letter-spacing: 2.5px;
+            color: var(--gris-texto);
+            font-weight: 700;
         }
 
         input {
             width: 100%;
-            padding: 15px;
-            border: 2px solid #000;
-            background: #fff;
-            color: #000;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: all 0.3s;
+            padding: 13px 16px;
+            border: 1px solid var(--gris-borde);
+            background: var(--gris-mid);
+            color: var(--blanco);
+            border-radius: 6px;
+            font-size: 1.05rem;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: border-color 0.2s, background 0.2s;
         }
+
+        input::placeholder { color: #3a3a3a; }
 
         input:focus {
             outline: none;
-            border-color: #e60012;
-            box-shadow: 0 0 0 3px rgba(230, 0, 18, 0.1);
+            border-color: var(--rojo);
+            background: #1f0004;
         }
 
-        button {
+        .btn-generar {
             width: 100%;
-            padding: 18px;
-            background: #e60012;
+            padding: 16px;
+            margin-top: 10px;
+            background: var(--rojo);
             border: none;
-            border-radius: 10px;
-            color: #fff;
+            border-radius: 6px;
+            color: var(--blanco);
             font-family: 'Bebas Neue', cursive;
-            font-size: 1.5rem;
-            letter-spacing: 2px;
+            font-size: 1.6rem;
+            letter-spacing: 4px;
             cursor: pointer;
-            transition: all 0.2s;
-            text-transform: uppercase;
-            font-weight: bold;
+            transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
         }
 
-        button:hover {
-            background: #ff1a2e;
+        .btn-generar:hover {
+            background: var(--rojo-vivo);
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(230, 0, 18, 0.3);
+            box-shadow: 0 10px 28px rgba(230,0,18,0.4);
         }
 
-        /* Cupón */
+        .btn-generar:active { transform: translateY(0); }
+
+        /* ── CUPÓN ──────────────────────────────── */
         .coupon-container {
             display: none;
-            animation: slideIn 0.5s ease-out;
+            animation: slideUp 0.45s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(28px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
         .coupon {
-            background: #fff;
-            color: #000;
-            border-radius: 15px;
+            background: var(--blanco);
+            color: var(--negro);
+            border-radius: 10px;
             overflow: hidden;
             position: relative;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-            border: 3px solid #e60012;
+            box-shadow:
+                0 30px 70px rgba(0,0,0,0.7),
+                0 0 0 1px rgba(230,0,18,0.25);
         }
 
-        /* Perforaciones del ticket */
         .coupon::before,
         .coupon::after {
             content: '';
             position: absolute;
-            width: 30px;
-            height: 30px;
-            background: #000;
+            width: 22px;
+            height: 22px;
+            background: var(--negro);
             border-radius: 50%;
             top: 50%;
             transform: translateY(-50%);
             z-index: 10;
         }
 
-        .coupon::before { left: -15px; }
-        .coupon::after { right: -15px; }
+        .coupon::before { left: -11px; }
+        .coupon::after  { right: -11px; }
 
         .coupon-header {
-            background: #000;
-            padding: 25px;
+            background: var(--negro);
+            padding: 0 0 24px;
             text-align: center;
-            position: relative;
-            border-bottom: 3px solid #e60012;
+        }
+
+        .coupon-tape {
+            background: var(--rojo);
+            overflow: hidden;
+            padding: 5px 0;
+            margin-bottom: 24px;
+        }
+
+        .coupon-tape-inner {
+            display: flex;
+            animation: marquee 10s linear infinite;
+            white-space: nowrap;
+        }
+
+        .coupon-tape-inner span {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 0.65rem;
+            letter-spacing: 4px;
+            color: rgba(255,255,255,0.85);
+            padding: 0 16px;
         }
 
         .coupon-header h2 {
             font-family: 'Bebas Neue', cursive;
-            font-size: 2.5rem;
-            letter-spacing: 3px;
-            margin-bottom: 5px;
-            color: #fff;
+            font-size: 2.6rem;
+            letter-spacing: 5px;
+            color: var(--blanco);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .coupon-subtitle {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #555;
+            text-transform: uppercase;
+            margin-bottom: 14px;
         }
 
         .coupon-code {
-            background: #e60012;
-            color: #fff;
+            background: var(--rojo);
+            color: var(--blanco);
             display: inline-block;
-            padding: 8px 20px;
-            border-radius: 20px;
+            padding: 5px 16px;
+            border-radius: 3px;
             font-family: 'Courier New', monospace;
             font-weight: bold;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            margin-top: 10px;
-            border: 2px solid #fff;
+            font-size: 0.95rem;
+            letter-spacing: 3px;
+        }
+
+        .dash-line {
+            border: none;
+            border-top: 2px dashed #ddd;
         }
 
         .coupon-body {
-            padding: 30px 25px;
-            text-align: center;
-            background: #fff;
+            padding: 24px 26px 20px;
+            background: var(--blanco);
         }
 
-        /* Nombre completo en vez de iniciales */
-        .customer-name {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 2.5rem;
-            color: #000;
-            margin: 10px 0;
-            line-height: 1.2;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .customer-section {
+            text-align: center;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
         }
 
         .customer-label {
-            font-size: 0.9rem;
+            font-size: 0.6rem;
+            font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 3.5px;
+            color: #aaa;
+            margin-bottom: 4px;
+        }
+
+        .customer-name {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.8rem;
+            color: var(--negro);
+            line-height: 1;
             letter-spacing: 2px;
-            color: #666;
-            font-weight: 600;
+            text-transform: uppercase;
         }
 
         .benefit {
-            border: 3px dashed #000;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-            background: #f5f5f5;
+            background: var(--negro);
+            border-radius: 8px;
+            padding: 20px 20px 18px;
+            margin-bottom: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 4px;
+            background: var(--rojo);
+        }
+
+        .benefit-eyebrow {
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #555;
+            text-transform: uppercase;
+            margin-bottom: 6px;
         }
 
         .benefit h3 {
             font-family: 'Bebas Neue', cursive;
             font-size: 2rem;
-            margin-bottom: 10px;
-            color: #e60012;
+            color: var(--blanco);
+            letter-spacing: 3px;
+            line-height: 1;
+            margin-bottom: 8px;
         }
 
-        .benefit p {
-            font-size: 1rem;
-            line-height: 1.4;
-            color: #000;
-            font-weight: 600;
+        .benefit-items {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--blanco);
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .benefit-items strong { color: var(--rojo); }
+
+        .benefit-badge {
+            display: inline-block;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            background: #1a1a1a;
+            color: #666;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        .section-eyebrow {
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #aaa;
+            text-transform: uppercase;
+            margin-bottom: 10px;
         }
 
         .discounts {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 8px;
         }
 
         .discount-tag {
-            background: #000;
-            color: #fff;
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: bold;
+            background: var(--gris-panel);
+            color: var(--negro);
+            padding: 11px 14px;
+            border-radius: 6px;
+            font-size: 0.92rem;
+            font-weight: 700;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-left: 5px solid #e60012;
+            border-left: 4px solid var(--negro);
         }
 
-        .discount-tag span {
-            color: #fff;
-            font-size: 1.3rem;
+        .discount-pct {
+            background: var(--rojo);
+            color: var(--blanco);
             font-family: 'Bebas Neue', cursive;
-            background: #e60012;
-            padding: 5px 10px;
-            border-radius: 5px;
+            font-size: 1.25rem;
+            padding: 3px 10px;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            flex-shrink: 0;
         }
 
-        /* Fecha movida aquí abajo de los descuentos */
         .fecha-container {
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 1px dashed #ccc;
-            font-size: 0.8rem;
-            color: #666;
+            margin-top: 18px;
+            padding-top: 14px;
+            border-top: 1px dashed #ddd;
+            text-align: center;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #bbb;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .footer-coupon {
-            background: #f0f0f0;
-            padding: 20px;
-            font-size: 0.8rem;
-            color: #666;
+            background: var(--gris-claro);
+            padding: 14px 22px;
             text-align: center;
-            border-top: 2px dashed #ccc;
+            border-top: 2px dashed #ddd;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            color: #888;
+            text-transform: uppercase;
+            line-height: 1.7;
+        }
+
+        /* ── POST-CUPÓN ─────────────────────────── */
+        .post-actions {
+            margin-top: 20px;
+            text-align: center;
         }
 
         .hint {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: #fff;
-            font-style: italic;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-transform: uppercase;
+            margin-bottom: 12px;
         }
 
-        .screenshot-btn {
-            margin-top: 15px;
-            background: transparent;
-            border: 2px solid #fff;
-            color: #fff;
-            font-size: 1rem;
-            padding: 12px;
+        .btn-nuevo {
             width: 100%;
+            padding: 13px;
+            background: transparent;
+            border: 1px solid var(--gris-borde);
+            border-radius: 6px;
+            color: var(--blanco);
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
         }
 
-        .screenshot-btn:hover {
-            background: #fff;
-            color: #000;
+        .btn-nuevo:hover {
+            border-color: var(--blanco);
+            background: rgba(255,255,255,0.05);
         }
 
         @media print {
             body { background: white; }
-            .form-container, button, .hint { display: none; }
+            .form-container, .post-actions { display: none; }
             .coupon-container { display: block !important; }
         }
     </style>
 </head>
 <body>
     <div class="container">
+
         <header>
             <div class="main-logo">
                 <img src="quesudo.png" alt="Quesudos">
             </div>
+
+            <div class="red-tape">
+                <div class="red-tape-inner">
+                    <span>STREET FOOD</span><span>·</span>
+                    <span>STREET FOOD</span><span>·</span>
+                    <span>STREET FOOD</span><span>·</span>
+                    <span>STREET FOOD</span><span>·</span>
+                    <span>STREET FOOD</span><span>·</span>
+                    <span>STREET FOOD</span><span>·</span>
+                    <span>STREET FOOD</span><span>·</span>
+                    <span>STREET FOOD</span><span>·</span>
+                </div>
+            </div>
+
             <div class="collab-logos">
                 <div class="collab-logo">
                     <img src="maely.jpeg" alt="Maely Nails Studio">
@@ -366,6 +534,8 @@
         </header>
 
         <div class="form-container" id="formSection">
+            <div class="form-eyebrow">Beneficio exclusivo</div>
+            <div class="form-title">OBTÉN TU CUPÓN</div>
             <div class="input-group">
                 <label for="nombre">Nombre</label>
                 <input type="text" id="nombre" placeholder="Ej: Jean" autocomplete="given-name">
@@ -374,103 +544,106 @@
                 <label for="apellido">Apellido</label>
                 <input type="text" id="apellido" placeholder="Ej: Patiño" autocomplete="family-name">
             </div>
-            <button onclick="generarCupon()">Generar Cupón</button>
+            <button class="btn-generar" onclick="generarCupon()">Generar Cupón</button>
         </div>
 
         <div class="coupon-container" id="couponSection">
             <div class="coupon" id="cupon">
+
                 <div class="coupon-header">
+                    <div class="coupon-tape">
+                        <div class="coupon-tape-inner">
+                            <span>QUESUDOS STREETFOOD</span><span>·</span>
+                            <span>QUESUDOS STREETFOOD</span><span>·</span>
+                            <span>QUESUDOS STREETFOOD</span><span>·</span>
+                            <span>QUESUDOS STREETFOOD</span><span>·</span>
+                            <span>QUESUDOS STREETFOOD</span><span>·</span>
+                            <span>QUESUDOS STREETFOOD</span><span>·</span>
+                        </div>
+                    </div>
                     <h2>CUPÓN DIGITAL</h2>
-                    <div class="coupon-code" id="codigoCupon">Q-BG-001</div>
+                    <div class="coupon-subtitle">Beneficio exclusivo</div>
+                    <div class="coupon-code" id="codigoCupon">Q-BG-0001</div>
                 </div>
-                
+
+                <hr class="dash-line">
+
                 <div class="coupon-body">
-                    <div class="customer-label">Cliente</div>
-                    <div class="customer-name" id="nombreCompleto">Benjamin González</div>
-                    
-                    <div class="benefit">
-                        <h3>COMBO ESPECIAL</h3>
-                        <p><strong>2 DOSIS</strong>  + <strong>1 BEBIDA</strong></p>
-                        <small style="color: #666; display: block; margin-top: 5px;">Válido una sola vez</small>
+                    <div class="customer-section">
+                        <div class="customer-label">Cliente</div>
+                        <div class="customer-name" id="nombreCompleto">Benjamin González</div>
                     </div>
 
-                    <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; color: #666; font-weight: 600;">
-                        Beneficios adicionales:
+                    <div class="benefit">
+                        <div class="benefit-eyebrow">Combo especial</div>
+                        <h3>QUESUDOS</h3>
+                        <div class="benefit-items">
+                            <strong>2 DOSIS</strong> + <strong>1 BEBIDA</strong>
+                        </div>
+                        <span class="benefit-badge">Válido una sola vez</span>
                     </div>
-                    
+
+                    <div class="section-eyebrow">Beneficios adicionales</div>
                     <div class="discounts">
                         <div class="discount-tag">
-                            <span>15% OFF</span>
-                            Tatuajes - La Casa Tattoo
+                            Tatuajes — La Casa Tattoo
+                            <span class="discount-pct">15% OFF</span>
                         </div>
                         <div class="discount-tag">
-                            <span>15% OFF</span>
-                            Manicure - Maely Nails
+                            Manicure — Maely Nails
+                            <span class="discount-pct">15% OFF</span>
                         </div>
                     </div>
 
-                    <!-- Fecha movida aquí -->
                     <div class="fecha-container">
                         Generado el <span id="fecha"></span>
                     </div>
                 </div>
 
                 <div class="footer-coupon">
-                    <p>Presenta este cupón en LA CASA y Maelys Nails Studio<br>para canjear tu descuento</p>
+                    Presenta este cupón en La Casa Tattoo y Maely Nails Studio<br>para canjear tu descuento
                 </div>
+
             </div>
 
-            <div class="hint">
-                📸 Toma una captura de pantalla para guardar tu cupón
-                <br>
-                <button class="screenshot-btn" onclick="nuevoCupon()">Generar otro cupón</button>
+            <div class="post-actions">
+                <p class="hint">📸 Toma una captura de pantalla para guardar tu cupón</p>
+                <button class="btn-nuevo" onclick="nuevoCupon()">Generar otro cupón</button>
             </div>
         </div>
+
     </div>
 
     <script>
         function generarCupon() {
-            const nombre = document.getElementById('nombre').value.trim();
+            const nombre   = document.getElementById('nombre').value.trim();
             const apellido = document.getElementById('apellido').value.trim();
-            
+
             if (!nombre || !apellido) {
                 alert('Por favor completa ambos campos');
                 return;
             }
 
-            // Generar iniciales para el código
             const iniciales = (nombre.charAt(0) + apellido.charAt(0)).toUpperCase();
-            
-            // Mostrar nombre completo en el cupón
-            const nombreCompleto = nombre + ' ' + apellido;
-            document.getElementById('nombreCompleto').textContent = nombreCompleto;
-
-            // Generar código único aleatorio (formato: Q-INICIALES-XXXX)
             const randomNum = Math.floor(1000 + Math.random() * 9000);
-            const codigo = `Q-${iniciales}-${randomNum}`;
-            document.getElementById('codigoCupon').textContent = codigo;
 
-            // Fecha actual
-            const fecha = new Date().toLocaleDateString('es-ES');
-            document.getElementById('fecha').textContent = fecha;
+            document.getElementById('nombreCompleto').textContent = nombre + ' ' + apellido;
+            document.getElementById('codigoCupon').textContent    = `Q-${iniciales}-${randomNum}`;
+            document.getElementById('fecha').textContent          = new Date().toLocaleDateString('es-ES');
 
-            // Mostrar cupón y ocultar formulario
-            document.getElementById('formSection').style.display = 'none';
+            document.getElementById('formSection').style.display   = 'none';
             document.getElementById('couponSection').style.display = 'block';
-
-            // Scroll suave hacia arriba
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function nuevoCupon() {
-            document.getElementById('formSection').style.display = 'block';
+            document.getElementById('formSection').style.display   = 'block';
             document.getElementById('couponSection').style.display = 'none';
-            document.getElementById('nombre').value = '';
+            document.getElementById('nombre').value   = '';
             document.getElementById('apellido').value = '';
             document.getElementById('nombre').focus();
         }
 
-        // Permitir generar con Enter
         document.getElementById('apellido').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') generarCupon();
         });
